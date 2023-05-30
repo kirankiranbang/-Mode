@@ -1,0 +1,49 @@
+
+//shop.html
+--------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shop-PRODUCT</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <!-- //when user click on shop link redirect to http://localhost:4000/> -->
+                <li><a href="/">shop</a></li>     
+               <li><a href="/">Add-product</a></li>
+               <li><a href="vcontact">vcontact</a></li>  
+            
+               <!-- http://localhost:4000/admin/shop      
+                when user using this url above * shop and *addproduct and vcontact link will displayed
+            when user click on vcontact link it will move to vcontact page http://localhost:4000/admin/vcontact  
+             ie will access vcontact.html -->
+ 
+                
+            </ul>
+        </nav>
+    </header>
+
+<main>
+    <form id="contactForm" action="/submit-contact" method="post">
+        <input type="text" name="data">
+        <input type="submit" value="Submit">
+    </form>
+
+</main>
+<script>
+    document.getElementById("contactForm").addEventListener("submit",(event)=>{
+event.preventDefault();
+window.location.href="/success"
+    });
+</script>
+
+
+
+</body>
+</html>

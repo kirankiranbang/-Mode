@@ -2,83 +2,55 @@
 
 
 
-////http://localhost:4000/shop/add-product
+////http://localhost:4000/admin/add-product
 
 
 
-const express=require('express')
-// const { dirname } = require('path');
-// const rootDir=require('../util/path')
-
+const express = require('express');
+const router = express.Router();
+const productController = require('../controllers/products');
 const path = require('path');
-const router=express.Router();
+
+
+router.get('/add-product', productController.getAddProduct);
+router.post('/add-product', productController.postAddProduct);
+
+module.exports = router;
 
 
 
 
 
-router.get('/admin/add-product', (req, res, next) => {
-
-    console.log('pathjoin from Admin.js!');
-
-    
-
-    res.sendFile(path.join(__dirname,'../','views','add-product.html'))  
-
+  
 // res.sendFile(path.join(rootDir,'views','add-product.html'))  //http://localhost:4000/admin/add-product
 
 
-  });
 
 
 
 
-  router.get('/admin/shop', (req, res, next) => {      //http://localhost:4000/admin/shop
+//   router.get('/admin/shop', (req, res, next) => {      //http://localhost:4000/admin/shop
 
-    console.log('pathjoin from Admin.js!');
+//     console.log('pathjoin from Admin.js!');
 
     
 
-    res.sendFile(path.join(__dirname,'../','views','shop.html'))  
+//     res.sendFile(path.join(__dirname,'../','views','shop.html'))  
 
-});
-
-
-
-
-router.get('/admin/vcontact', (req, res, next) => {      //http://localhost:4000/admin/vcontact
-
-    console.log('pathjoin from Admin.js');
-
-    res.sendFile(path.join(__dirname,'../','views','vcontact.html'))  
-
-
-    // router.post('/another-url', (req, res, next) => {
-
-    //     console.log(req.body);
-    
-    //    res.redirect('/another-url');
-    
-    //   });
-    
-
-
-
-});
+// });
 
 
 
 
+// router.get('/admin/vcontact', (req, res, next) => {      //http://localhost:4000/admin/vcontact
 
+//     console.log('pathjoin from Admin.js');
 
-router.post('/product', (req, res, next) => {
-
-    console.log(req.body);
-
-   res.redirect('/');
-
-  });
+//     res.sendFile(path.join(__dirname,'../','views','vcontact.html'))  
 
 
 
-  module.exports=router;
+
+// });
+
+

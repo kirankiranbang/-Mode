@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vcontact</title>
+<style>
+    .main-header{
+width: 65%;
+height: 50%;
+background-color: chartreuse;
+
+    }
+</style>
+
+
+
+
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="main-header"><a href="/">shop</a></li>no
+                <li   class="main-header"  ><a href="/">Add-product</a></li>
+                <li   class="main-header"  ><a href="/">vcontact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="main-header" >vcontact</h1>
+        <form id="contactForm" action="/submit-contact" method="post">
+            <input type="text" name="data" style="background-color:blue ;" required>
+            <input type="email" name="email"   required>
+            <input type="submit" value="Submit" id="submitBtn">
+        </form>
+    </main>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Validate the form inputs
+            var dataInput = document.getElementsByName('data')[0];
+            var emailInput = document.getElementsByName('email')[0];
+            var isValid = true;
+
+            if (dataInput.value.trim() === '' || emailInput.value.trim() === '') {
+                alert('Please fill in all the required fields.');
+                return;
+            }
+            // If the form is valid, proceed with submission
+            if (isValid) {
+                // Show the "thanks" message
+                var thanksMessage = document.createElement('p');
+                thanksMessage.textContent = 'Thanks for your submission!';
+                document.body.appendChild(thanksMessage);
+
+                // Redirect to another URL after a delay (e.g., 3 seconds)
+                setTimeout(function() {
+                    window.location.href = '/another-url/success';
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
